@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\codetyphon\fpc\fpc64\bin\x86_64-win64\fpc.exe" Date="1232174897"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq -FiG:\sb\src\test\TestNano\lib\x86_64-win64 -FuG:\sb\src\test\TestNano\ -FUG:\sb\src\test\TestNano\lib\x86_64-win64\ TestNano.lpr"/>
+</CONFIG>

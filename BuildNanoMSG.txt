@@ -1,0 +1,53 @@
+How to build nanomsg
+
+Download mingw-w64: https://sourceforge.net/projects/mingw-w64/files/
+Start program. This program is able to download mingw32 and mingw64 compilers.
+Choose platworm x64 or i686. Chose directory to download and install.
+For 64 is C:/mingw-w64/x86_64/
+For 32 is C:/mingw-w64/i686
+Download cmake - it comes with visual studio, but it is better to download from 
+https://cmake.org/download/
+Install cmake into c:\cmake
+Change the path variable.
+Add C:/mingw-w64/x86_64/mingw64/bin/
+Add C:/mingw-w64/i686/mingw32/bin/
+Add C:/cmake/bin
+
+Downoad nanomsg from https://github.com/nanomsg/nanomsg/releases
+Install nanomsg into c:\nanomsg
+
+To compile WIN32
+Open cmd:
+0. set CC=C:/mingw-w64/i686/mingw32/bin/gcc.exe
+or 
+0. set CC=c:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\cl.exe
+1.  Go to the root directory of the local source repository.
+2.  To perform an out-of-source build, 
+2a. if build directory exists remove it run: `rm build`
+3.  `mkdir build` 
+4.  `cd build`
+5.  `cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=c:\nanomsg\install\win32 ..`
+6.  `cmake --build .`
+7.  `ctest -G Debug .`
+8.  `cmake --build . --target install`
+    *NB:* This may have to be done as a privileged user.
+9.  (Linux only).  `ldconfig` (As a privileged or root user.)
+
+To compile WIN32
+Open cmd:
+0. Set compiler: set CC=C:/mingw-w64/x86_64/mingw64/bin/gcc.exe
+1.  Go to the root directory of the local source repository.
+2.  To perform an out-of-source build, 
+2a. if build directory exists remove it run: `rm build`
+3.  `mkdir build` 
+4.  `cd build`
+5.  `cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=c:\nanomsg\install\win64 ..`
+6.  `cmake --build .`
+7.  `ctest -G Debug .`
+8.  `cmake --build . --target install`
+    *NB:* This may have to be done as a privileged user.
+9.  (Linux only).  `ldconfig` (As a privileged or root user.)
+
+
+Dll-s are in c:\nanomsg\install
+

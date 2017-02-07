@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="7">
+      <Unit0>
+        <Filename Value="TestNano.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="123"/>
+        <CursorPos Y="143"/>
+        <UsageCount Value="135"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="nano.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="5" Y="257"/>
+        <UsageCount Value="135"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="win32\include\nanomsg\nn.h"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="21" Y="104"/>
+        <UsageCount Value="66"/>
+        <DefaultSyntaxHighlighter Value="C++"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\inc\ctypes.pp"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="77"/>
+        <CursorPos X="3" Y="92"/>
+        <UsageCount Value="67"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\win\sysosh.inc"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="11"/>
+        <CursorPos X="3" Y="26"/>
+        <UsageCount Value="67"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\Test0mq\zmq.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="40"/>
+        <CursorPos X="3" Y="51"/>
+        <UsageCount Value="66"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="nanomsgclass.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="NanoMsgClass"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="189"/>
+        <CursorPos Y="212"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit6>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="105" TopLine="84"/>
+      </Position1>
+      <Position2>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="106" TopLine="84"/>
+      </Position2>
+      <Position3>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="107" TopLine="84"/>
+      </Position3>
+      <Position4>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="108" TopLine="84"/>
+      </Position4>
+      <Position5>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="174" TopLine="159"/>
+      </Position5>
+      <Position6>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="175" TopLine="159"/>
+      </Position6>
+      <Position7>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="176" TopLine="159"/>
+      </Position7>
+      <Position8>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="126" TopLine="114"/>
+      </Position8>
+      <Position9>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="99" TopLine="84"/>
+      </Position9>
+      <Position10>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="100" TopLine="84"/>
+      </Position10>
+      <Position11>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="102" TopLine="84"/>
+      </Position11>
+      <Position12>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="104" TopLine="84"/>
+      </Position12>
+      <Position13>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="105" TopLine="84"/>
+      </Position13>
+      <Position14>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="106" TopLine="84"/>
+      </Position14>
+      <Position15>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="107" TopLine="84"/>
+      </Position15>
+      <Position16>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="108" TopLine="84"/>
+      </Position16>
+      <Position17>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="174" TopLine="159"/>
+      </Position17>
+      <Position18>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="175" TopLine="159"/>
+      </Position18>
+      <Position19>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="176" TopLine="159"/>
+      </Position19>
+      <Position20>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="177" TopLine="159"/>
+      </Position20>
+      <Position21>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="182" TopLine="159"/>
+      </Position21>
+      <Position22>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="183" TopLine="159"/>
+      </Position22>
+      <Position23>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="110" TopLine="92"/>
+      </Position23>
+      <Position24>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="111" TopLine="92"/>
+      </Position24>
+      <Position25>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="204" TopLine="189"/>
+      </Position25>
+      <Position26>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="205" TopLine="189"/>
+      </Position26>
+      <Position27>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="206" TopLine="189"/>
+      </Position27>
+      <Position28>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="211" TopLine="189"/>
+      </Position28>
+      <Position29>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="212" TopLine="189"/>
+      </Position29>
+      <Position30>
+        <Filename Value="TestNano.lpr"/>
+        <Caret Line="143" TopLine="123"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="TestNano.lpr"/>
+        <Line Value="19"/>
+      </Item1>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>
