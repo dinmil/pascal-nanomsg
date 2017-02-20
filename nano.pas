@@ -70,6 +70,9 @@ const
   NN_POLLIN = 1;
   NN_POLLOUT = 2;
 
+  NN_TCP = -3;
+
+
     {  This function retrieves the errno as it is known to the library.           }
   {  The goal of this function is to make the code 100% portable, including     }
   {  where the library is compiled with certain CRT library (on Windows) and    }
@@ -237,6 +240,14 @@ function nn_symbol(i: cint; var value: cint): pchar; cdecl; external LIB_NANO;
     NN_PROTO_BUS=7;
     NN_BUS=(NN_PROTO_BUS * 16 + 0);
 
+    NN_PROTO_PAIR = 1;
+    NN_PAIR = NN_PROTO_PAIR * 16 + 0;
+
+    NN_PROTO_SURVEY = 6;
+    NN_SURVEYOR = (NN_PROTO_SURVEY * 16 + 2);
+    NN_RESPONDENT = (NN_PROTO_SURVEY * 16 + 3);
+    NN_SURVEYOR_DEADLINE = 1;
+
     NN_INPROC=-1;
     NN_IPC=-2;
 
@@ -298,7 +309,8 @@ function nn_symbol(i: cint; var value: cint): pchar; cdecl; external LIB_NANO;
     function nn_socket (domain: integer; protocol: integer): integer; cdecl; external LIB_NANO;
     function nn_close (s: integer): integer; cdecl; external LIB_NANO;
     function nn_setsockopt (s, level, option: integer; optval: pointer; optvallen: csize_t): integer; cdecl; external LIB_NANO;
-    function nn_getsockopt (s, level, option: integer; optval: pointer; optvallen: csize_t): integer; cdecl; external LIB_NANO;
+//    function nn_getsockopt (s, level, option: integer; optval: pointer; optvallen: csize_t): integer; cdecl; external LIB_NANO;
+    function nn_getsockopt (s, level, option: integer; optval: pointer; var optvallen: dword): integer; cdecl; external LIB_NANO;
     function nn_bind (s: integer; addr: pchar): integer; cdecl; external LIB_NANO;
     function nn_connect (s: integer; addr: pchar): integer; cdecl; external LIB_NANO;
     function nn_shutdown (s, how: integer): integer; cdecl; external LIB_NANO;

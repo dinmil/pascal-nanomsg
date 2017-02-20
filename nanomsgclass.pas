@@ -56,15 +56,17 @@ type
     function CloseSocket: cint;
 
     function Send(InBuffer: Pointer; InLen: csize_t; InFlags: cint = 0): cint; overload;
-    function Send(var InString: String): cint;
+    function Send(InString: String): cint;
     function Recv(InBuffer: Pointer; InBufferSize: cint; InFlags: cint = 0): cint; overload;
     function Recv(var OutString: String; InFlags: cint = 0; InHowMuchMilliseconds: cint = 0): cint; overload;
 
-    function SetSockOptInteger(InOption: cint; InValue: Integer): cint;
-    function SetSockOptInt64(InOption: cint; InValue: Int64): cint;
+    function SetSockOptInteger(InOption: cint; InValue: Integer; InLevel: integer = NN_SOL_SOCKET): cint;
+    function SetSockOptInt64(InOption: cint; InValue: Int64; InLevel: integer = NN_SOL_SOCKET): cint;
+    function SetSockOptString(InOption: cint; InValue: string; InLevel: integer = NN_SOL_SOCKET): cint;
 
-    function GetSockOptInteger(InOption: cint): Integer;
-    function GetSockOptInt64(InOption: cint): Int64;
+    function GetSockOptInteger(InOption: cint; InLevel: integer = NN_SOL_SOCKET): Integer;
+    function GetSockOptInt64(InOption: cint; InLevel: integer = NN_SOL_SOCKET): Int64;
+    function GetSockOptString(InOption: cint; InLevel: integer = NN_SOL_SOCKET): String;
   end;
 
 var InitTNanoMsgSetup: TNanoMsgSetup = ({%H-});
@@ -211,7 +213,7 @@ begin
   Result := MyRC;
 end;
 
-function TNanoMsgSocket.Send(var InString: String): cint;
+function TNanoMsgSocket.Send(InString: String): cint;
 begin
   Result := Send(Pchar(InString), Length(InString), 0);
 end;
@@ -259,7 +261,41 @@ begin
   Result := MyResult;
 end;
 
-function TNanoMsgSocket.SetSockOptInteger(InOption: cint; InValue: Integer): cint;
+function TNanoMsgSocket.SetSockOptInteger(InOption: cint; InValue: Integer;
+  InLevel: integer): cint;
+var MyRC: cint;
+    MyError: cint;
+    MyErrorString: String;
+begin
+  // NN_SUB  - possible levels
+  // NN_TCP
+  // NN_SOL_SOCKET
+
+  MyRC := nn_setsockopt(_Socket, InLevel, InOption, @InValue, sizeof(InValue));
+  if MyRC = -1 then begin
+    MyError := nn_errno();
+    MyErrorString := GetNanoMsgError(MyError);
+    RaiseNanoMsgError(MyError, MyErrorString);
+  end;
+  Result := MyRC;
+end;
+
+function TNanoMsgSocket.SetSockOptInt64(InOption: cint; InValue: Int64;
+  InLevel: integer): cint;
+var MyRC: cint;
+    MyError: cint;
+    MyErrorString: String;
+begin
+  MyRC := nn_setsockopt(_Socket, InLevel, InOption, @InValue, sizeof(InValue));
+  if MyRC = -1 then begin
+    MyError := nn_errno();
+    MyErrorString := GetNanoMsgError(MyError);
+    RaiseNanoMsgError(MyError, MyErrorString);
+  end;
+  Result := MyRC;
+end;
+
+function TNanoMsgSocket.SetSockOptString(InOption: cint; InValue: string; InLevel: integer): cint;
 var MyRC: cint;
     MyError: cint;
     MyErrorString: String;
@@ -267,7 +303,12 @@ begin
   // NN_SUB  - possible levels
   // NN_TCP
 
-  MyRC := nn_setsockopt(_Socket, NN_SOL_SOCKET, InOption, @InValue, sizeof(InValue));
+  if Length(InValue) > 0 then begin
+    MyRC := nn_setsockopt(_Socket, InLevel, InOption, @InValue[1], Length(InValue));
+  end
+  else begin
+    MyRC := nn_setsockopt(_Socket, InLevel, InOption, @InValue, 0);
+  end;
   if MyRC = -1 then begin
     MyError := nn_errno();
     MyErrorString := GetNanoMsgError(MyError);
@@ -276,21 +317,8 @@ begin
   Result := MyRC;
 end;
 
-function TNanoMsgSocket.SetSockOptInt64(InOption: cint; InValue: Int64): cint;
-var MyRC: cint;
-    MyError: cint;
-    MyErrorString: String;
-begin
-  MyRC := nn_setsockopt(_Socket, NN_SOL_SOCKET, InOption, @InValue, sizeof(InValue));
-  if MyRC = -1 then begin
-    MyError := nn_errno();
-    MyErrorString := GetNanoMsgError(MyError);
-    RaiseNanoMsgError(MyError, MyErrorString);
-  end;
-  Result := MyRC;
-end;
-
-function TNanoMsgSocket.GetSockOptInteger(InOption: cint): Integer;
+function TNanoMsgSocket.GetSockOptInteger(InOption: cint; InLevel: integer
+  ): Integer;
 var MyRC: cint;
     MyError: cint;
     MyErrorString: String;
@@ -299,7 +327,7 @@ var MyRC: cint;
 begin
   MyValue := 0;
   MySize := SizeOf(MyValue);
-  MyRC := nn_getsockopt(_Socket, NN_SOL_SOCKET, InOption, @MyValue, MySize);
+  MyRC := nn_getsockopt(_Socket, InLevel, InOption, @MyValue, MySize);
   if MyRC = -1 then begin
     MyError := nn_errno();
     MyErrorString := GetNanoMsgError(MyError);
@@ -308,7 +336,8 @@ begin
   Result := MyValue;
 end;
 
-function TNanoMsgSocket.GetSockOptInt64(InOption: cint): Int64;
+function TNanoMsgSocket.GetSockOptInt64(InOption: cint; InLevel: integer
+  ): Int64;
 var MyRC: cint;
     MyError: cint;
     MyErrorString: String;
@@ -317,13 +346,32 @@ var MyRC: cint;
 begin
   MyValue := 0;
   MySize := SizeOf(MyValue);
-  MyRC := nn_getsockopt(_Socket, NN_SOL_SOCKET, InOption, @MyValue, MySize);
+  MyRC := nn_getsockopt(_Socket, InLevel, InOption, @MyValue, MySize);
   if MyRC = -1 then begin
     MyError := nn_errno();
     MyErrorString := GetNanoMsgError(MyError);
     RaiseNanoMsgError(MyError, MyErrorString);
   end;
   Result := MyValue;
+end;
+
+function TNanoMsgSocket.GetSockOptString(InOption: cint; InLevel: integer
+  ): String;
+var MyRC: cint;
+    MyError: cint;
+    MyErrorString: String;
+    MyValue: array[0..10*1024-1] of char;
+    MySize: DWord;
+begin
+  MySize := SizeOf(MyValue);
+  FillByte(MyValue, MySize, 0);
+  MyRC := nn_getsockopt(_Socket, InLevel, InOption, @MyValue[0], MySize);
+  if (MyRC = -1) then begin
+    MyError := nn_errno();
+    MyErrorString := GetNanoMsgError(MyError);
+    RaiseNanoMsgError(MyError, MyErrorString);
+  end;
+  Result := String(MyValue);
 end;
 
 procedure NanoMsgReadConfiguration(InIniFile: TIniFile; InSection: String;

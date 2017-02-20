@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="2">
+      <Unit0>
+        <Filename Value="NanoBus.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="38"/>
+        <CursorPos Y="52"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="nanomsgclass.pas"/>
+        <UnitName Value="NanoMsgClass"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="216"/>
+        <CursorPos X="30" Y="216"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit1>
+    </Units>
+    <JumpHistory Count="6" HistoryIndex="5">
+      <Position1>
+        <Filename Value="NanoBus.lpr"/>
+        <Caret Line="37" Column="8" TopLine="26"/>
+      </Position1>
+      <Position2>
+        <Filename Value="NanoBus.lpr"/>
+        <Caret Line="80" Column="10" TopLine="58"/>
+      </Position2>
+      <Position3>
+        <Filename Value="NanoBus.lpr"/>
+        <Caret Line="20" Column="34" TopLine="7"/>
+      </Position3>
+      <Position4>
+        <Filename Value="NanoBus.lpr"/>
+        <Caret Line="46" Column="43" TopLine="29"/>
+      </Position4>
+      <Position5>
+        <Filename Value="NanoBus.lpr"/>
+        <Caret Line="53" Column="33" TopLine="38"/>
+      </Position5>
+      <Position6>
+        <Filename Value="nanomsgclass.pas"/>
+        <Caret Line="59" Column="19" TopLine="46"/>
+      </Position6>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
