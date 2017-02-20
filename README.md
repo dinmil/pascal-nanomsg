@@ -16,6 +16,9 @@ Difference between nano0 and nano0class is that nano0class use object pascal sty
 
 This project is far from finished, but it shows how to send messages between applications with nanomsg library. It is not tested on any other enviroment other then WIN32 and WIN64. 
 
+Project contain pascal translation of c examples taken from url:
+http://tim.dysinger.net/posts/2013-09-16-getting-started-with-nanomsg.html
+
 Any improvement is welcome. Any test is welcome.
 
 Note. NanoMsg is like ZeroMQ, but it is written in plain C language, comparing to ZeroMQ which is written by the same author in C++ language. My test shows that ZeroMQ sends small messages (up to 5 KB) faster, and NanoMsg sends much faster longer messages. Both libraries are great and it is possible to make some pascal wrapper class which can handle both libraries.
